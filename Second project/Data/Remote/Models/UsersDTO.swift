@@ -16,4 +16,8 @@ struct UsersDTO: Codable {
         case users = "results"
         case info
     }
+    
+    func fetchUsers(completion: ServiceCompletion ) {
+        
+    }
 }

@@ -14,6 +14,8 @@
 		D982AAF9234B8075004F0A89 /* UserCoordinatesDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D982AAF8234B8075004F0A89 /* UserCoordinatesDTO.swift */; };
 		D982AAFB234B80B7004F0A89 /* UserTimezoneDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D982AAFA234B80B7004F0A89 /* UserTimezoneDTO.swift */; };
 		D982AAFD234B80FA004F0A89 /* UserIDDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D982AAFC234B80FA004F0A89 /* UserIDDTO.swift */; };
+		D982AAFF234B8951004F0A89 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D982AAFE234B8951004F0A89 /* DatabaseManager.swift */; };
+		D982AB01234BAEE5004F0A89 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D982AB00234BAEE5004F0A89 /* APIManager.swift */; };
 		D99FC67923478ECE00A4F411 /* loading-ring.json in Resources */ = {isa = PBXBuildFile; fileRef = D99FC67823478ECE00A4F411 /* loading-ring.json */; };
 		D99FC67E2347B6B000A4F411 /* UserDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99FC67D2347B6B000A4F411 /* UserDAO.swift */; };
 		D99FC6822347BEFC00A4F411 /* UsersDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99FC6812347BEFC00A4F411 /* UsersDTO.swift */; };
@@ -83,6 +85,8 @@
 		D982AAF8234B8075004F0A89 /* UserCoordinatesDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoordinatesDTO.swift; sourceTree = "<group>"; };
 		D982AAFA234B80B7004F0A89 /* UserTimezoneDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTimezoneDTO.swift; sourceTree = "<group>"; };
 		D982AAFC234B80FA004F0A89 /* UserIDDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIDDTO.swift; sourceTree = "<group>"; };
+		D982AAFE234B8951004F0A89 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		D982AB00234BAEE5004F0A89 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		D99FC67823478ECE00A4F411 /* loading-ring.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "loading-ring.json"; path = "../../../../../Downloads/loading-ring.json"; sourceTree = "<group>"; };
 		D99FC67D2347B6B000A4F411 /* UserDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDAO.swift; sourceTree = "<group>"; };
 		D99FC6812347BEFC00A4F411 /* UsersDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersDTO.swift; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				D99FC67C2347B6A000A4F411 /* Models */,
+				D982AAFE234B8951004F0A89 /* DatabaseManager.swift */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -218,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				D99FC6802347BEED00A4F411 /* Models */,
+				D982AB00234BAEE5004F0A89 /* APIManager.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -626,12 +632,14 @@
 				D99FC68E2347C80000A4F411 /* UserLoginDTO.swift in Sources */,
 				D9E80B832346515D00ABF568 /* MainViewController.swift in Sources */,
 				D99FC67E2347B6B000A4F411 /* UserDAO.swift in Sources */,
+				D982AB01234BAEE5004F0A89 /* APIManager.swift in Sources */,
 				D99FC6822347BEFC00A4F411 /* UsersDTO.swift in Sources */,
 				D99FC6842347C0EF00A4F411 /* InfoDTO.swift in Sources */,
 				D9E80B8B2346631900ABF568 /* PersonTableViewCell.swift in Sources */,
 				D982AAF9234B8075004F0A89 /* UserCoordinatesDTO.swift in Sources */,
 				D99FC68C2347C77C00A4F411 /* UserDobDTO.swift in Sources */,
 				D9C3A1BA2345036500D6E042 /* SplashViewController.swift in Sources */,
+				D982AAFF234B8951004F0A89 /* DatabaseManager.swift in Sources */,
 				D99FC6862347C2D300A4F411 /* UserDTO.swift in Sources */,
 				D982AAF7234B803F004F0A89 /* UserStreetDTO.swift in Sources */,
 				D99FC6882347C40E00A4F411 /* UserNameDTO.swift in Sources */,

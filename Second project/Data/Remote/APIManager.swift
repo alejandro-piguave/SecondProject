@@ -7,3 +7,19 @@
 //
 
 import Foundation
+
+enum ServiceResult {
+    case success(data: Any?)
+    case failure(msg: String)
+}
+
+typealias ServiceCompletion = (_ result: ServiceResult) -> Void
+
+class APIManager {
+    static let shared = APIManager()
+    private init() {}
+    
+    func fetchUsers(completion: ServiceCompletion) {
+        
+    }
+}

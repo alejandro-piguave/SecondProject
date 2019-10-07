@@ -10,8 +10,8 @@ import Foundation
 
 
 struct UserCoordinatesDTO: Codable {
-    struct Coordinates: Codable {
-        let latitude, longitude: String
-    }
+
+    let latitude, longitude: String
+
 
 }
