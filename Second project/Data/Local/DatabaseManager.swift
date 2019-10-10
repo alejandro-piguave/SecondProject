@@ -14,23 +14,23 @@ class DatabaseManager {
     
     private init() {}
     
-    private let realm = try! Realm()
-    
     
     func save(user: UserDAO) {
+        let realm = try! Realm()
         try! realm.write {
             realm.add(user, update: .modified)
         }
     }
     
-    
     func delete(user: UserDAO) {
+        let realm = try! Realm()
         try! realm.write {
             realm.delete(user)
         }
     }
     
     func delete(id: String) {
+        let realm = try! Realm()
         guard let user = realm.object(ofType: UserDAO.self, forPrimaryKey: id) else {
             return
         }
@@ -41,16 +41,22 @@ class DatabaseManager {
     }
     
     func loadUsers() -> Results<UserDAO> {
+        let realm = try! Realm()
         return realm.objects(UserDAO.self)
     }
     
     func loadUser(id: String) -> UserDAO? {
-        return realm.objects(UserDAO.self).filter("uuid == %@", id).first
+        let realm = try! Realm()
+        return realm.object(ofType: UserDAO.self,forPrimaryKey: id)
     }
     
     func deleteAll() {
+        let realm = try! Realm()
         try! realm.write {
             realm.deleteAll()
         }
     }
+    
+
 }
+

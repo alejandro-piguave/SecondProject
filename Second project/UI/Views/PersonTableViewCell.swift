@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PersonTableViewCell: UITableViewCell {
 
@@ -37,9 +38,17 @@ class PersonTableViewCell: UITableViewCell {
         
     }
     
+    func configure(from user: User) {
+        if let userImg = user.img {
+            let url = URL(string: userImg)
+            personImage.kf.setImage(with: url)
+        }
+        personNameLabel.text = user.name
+        personMailLabel.text = user.email
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     

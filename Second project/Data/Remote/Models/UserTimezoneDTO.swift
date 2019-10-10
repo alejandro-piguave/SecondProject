@@ -9,7 +9,7 @@
 import Foundation
 
 struct UserTimezoneDTO: Codable {
-    let offset, timezoneDescription: String
+    let offset, timezoneDescription: String?
     
     enum CodingKeys: String, CodingKey {
         case offset

@@ -16,7 +16,7 @@ struct UserDTO: Codable {
     let login: UserLoginDTO?
     let dob, registered: UserDobDTO?
     let phone, cell: String?
-    //let id: UserIDDTO?
+    let id: UserIDDTO?
     let picture: UserPictureDTO?
     let nat: String?
     

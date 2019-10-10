@@ -6,6 +6,8 @@ target 'Second project' do
   use_frameworks!
   pod 'RealmSwift'
   pod 'lottie-ios'
+  pod 'Kingfisher'
+  pod 'Alamofire'
 
   # Pods for Second project
 

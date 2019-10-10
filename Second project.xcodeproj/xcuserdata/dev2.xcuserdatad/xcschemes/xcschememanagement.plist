@@ -7,7 +7,25 @@
 		<key>Second project.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>8</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>D9C3A1B32345036500D6E042</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D9C3A1C72345036F00D6E042</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D9C3A1D22345036F00D6E042</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

@@ -78,7 +78,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="MAi-Oe-c9a" id="62q-VH-Ohp"/>
-                        <outlet property="sControl" destination="zvO-9K-Fam" id="tVD-cx-Yla"/>
+                        <outlet property="segmentedControl" destination="zvO-9K-Fam" id="v8h-ta-hsH"/>
                         <outlet property="tableView" destination="pAD-z7-xwV" id="aq9-uI-f7D"/>
                     </connections>
                 </viewController>

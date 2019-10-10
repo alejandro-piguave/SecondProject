@@ -11,7 +11,5 @@ import Foundation
 
 struct UserCoordinatesDTO: Codable {
 
-    let latitude, longitude: String
-
-
+    let latitude, longitude: String?
 }

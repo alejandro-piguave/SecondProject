@@ -18,6 +18,6 @@ struct UsersDTO: Codable {
     }
     
     func fetchUsers(completion: ServiceCompletion ) {
-        
+
     }
 }

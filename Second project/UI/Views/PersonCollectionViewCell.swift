@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PersonCollectionViewCell: UICollectionViewCell {
 
@@ -15,20 +16,27 @@ class PersonCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    
-    @IBOutlet weak var subjectView: UIView! {
+    @IBOutlet weak var personView: UIView! {
         didSet {
             // corner radius
-            subjectView.layer.cornerRadius = 10
+            personView.layer.cornerRadius = 10
             
             // shadow
-            subjectView.layer.shadowColor = UIColor.black.cgColor
-            subjectView.layer.shadowOffset = CGSize(width: 3, height: 3)
-            subjectView.layer.shadowOpacity = 0.7
-            subjectView.layer.shadowRadius = 4.0
+            personView.layer.shadowColor = UIColor.black.cgColor
+            personView.layer.shadowOffset = CGSize(width: 3, height: 3)
+            personView.layer.shadowOpacity = 0.7
+            personView.layer.shadowRadius = 4.0
         }
     }
-    @IBOutlet weak var subjectImage: UIImageView!
-    @IBOutlet weak var subjectNameLabel: UILabel!
+    @IBOutlet weak var personImage: UIImageView!
+    @IBOutlet weak var personNameLabel: UILabel!
 
+    
+    func configure(from user: User) {
+        if let userImg = user.img {
+            let url = URL(string: userImg)
+            personImage.kf.setImage(with: url)
+        }
+        personNameLabel.text = user.name
+    }
 }

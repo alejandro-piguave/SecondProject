@@ -9,7 +9,7 @@
 import Foundation
 
 struct UserDobDTO: Codable {
-    let date: Date?
+    let date: String?
     let age: Int?
 
 }

@@ -14,16 +14,13 @@ class MainViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    var users: Array<User>?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        segmentedControl.addTarget(self, action: Selector(("onSegmentedControlValueChanged:")), for: .valueChanged)
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        segmentedControl.addTarget(self, action: #selector(MainViewController.onSegmentedControlValueChanged), for: .valueChanged)
+        configureDisplayInformation()
     }
     
     @objc func onSegmentedControlValueChanged( sender: UISegmentedControl) {
@@ -41,24 +38,46 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource{
+    
+    private func configureDisplayInformation() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.register(UINib(nibName: "PersonTableViewCell", bundle: nil), forCellReuseIdentifier: "PersonTableViewCell")
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        collectionView.register(UINib(nibName: "PersonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PersonCollectionViewCell")
+        
+        collectionView.isHidden = true
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return users?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "PersonTableViewCell", for: indexPath) as? PersonTableViewCell, let user = users?[indexPath.row] else {
+            return UITableViewCell()
+        }
+        cell.configure(from: user)
+        return cell
     }
 }
 
-extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return users?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PersonCollectionViewCell", for: indexPath) as? PersonCollectionViewCell, let user = users?[indexPath.row] else {
+            return UICollectionViewCell()
+        }
+        cell.configure(from: user)
+        return cell
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 16.0
@@ -70,6 +89,6 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellWidth = (UIScreen.main.bounds.width - 16.0) / 2.0
-        return CGSize(width: cellWidth, height:  cellWidth * 1.25)
+        return CGSize(width: cellWidth, height:  cellWidth * 1.33)
     }
 }

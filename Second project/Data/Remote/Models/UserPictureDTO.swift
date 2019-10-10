@@ -10,10 +10,4 @@ import Foundation
 
 struct UserPictureDTO: Codable {
     let large, medium, thumbnail: String?
-    
-    init(large: String?, medium: String?, thumbnail: String?) {
-        self.large = large
-        self.medium = medium
-        self.thumbnail = thumbnail
-    }
 }
