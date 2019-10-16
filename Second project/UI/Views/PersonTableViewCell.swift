@@ -29,13 +29,24 @@ class PersonTableViewCell: UITableViewCell {
         }
     }
     
-    @IBOutlet weak var personImage: UIImageView!
+    @IBOutlet weak var personImage: UIImageView! {
+        didSet {
+            personImage.layer.masksToBounds = false
+            personImage.layer.cornerRadius = personImage.frame.height/2
+            personImage.clipsToBounds = true
+        }
+    }
     @IBOutlet weak var personNameLabel: UILabel!
     @IBOutlet weak var personMailLabel: UILabel!
+    @IBOutlet weak var personNationality: UILabel!
+    
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        
+        personImage.image = nil
+        personMailLabel.text = nil
+        personNameLabel.text = nil
+        personNationality.text = nil
     }
     
     func configure(from user: User) {
@@ -45,6 +56,7 @@ class PersonTableViewCell: UITableViewCell {
         }
         personNameLabel.text = user.name
         personMailLabel.text = user.email
+        personNationality.text = user.flag
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

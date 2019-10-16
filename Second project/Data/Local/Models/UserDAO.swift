@@ -11,6 +11,7 @@ import RealmSwift
 class UserDAO: Object {
     @objc dynamic var gender: String?
     
+    @objc dynamic var title: String?
     @objc dynamic var firstName: String?
     @objc dynamic var lastName: String?
     
@@ -29,6 +30,7 @@ class UserDAO: Object {
     
     convenience init(uuid: String,
          avatar: String? = nil,
+         title: String? = nil,
          firstName: String? = nil,
          lastName: String? = nil,
          email: String? = nil,
@@ -44,7 +46,9 @@ class UserDAO: Object {
         self.uuid = uuid
         self.nationality = nationality
         self.avatar = avatar
-        self.firstName = lastName
+        self.title = title
+        self.firstName = firstName
+        self.lastName = lastName
         self.country = country
         self.email = email
         self.birthday = birthdate

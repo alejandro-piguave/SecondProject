@@ -28,6 +28,7 @@ class APIManager {
                     return
                 }
                 do {
+                    
                     let item = try JSONDecoder().decode(UsersDTO.self, from: responseData)
                     completion(.success(data: item))
                 }catch {

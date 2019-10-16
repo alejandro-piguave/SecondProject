@@ -27,12 +27,17 @@ class DataManager {
             }
         }
     }
-    func convert(from results: Results<UserDAO>) -> Array<User> {
-        return Array(results).compactMap({convert(userDAO: $0)})
-    }
     
     private func convert(userDAO: UserDAO) -> User {
-        return User(id: userDAO.uuid, firstName: userDAO.firstName, lastName: userDAO.lastName, birthdate: userDAO.birthday, email: userDAO.email, country: userDAO.country, nationality: userDAO.nationality, avatar: userDAO.avatar)
+        return User(id: userDAO.uuid,
+                    title: userDAO.title,
+                    firstName: userDAO.firstName,
+                    lastName: userDAO.lastName,
+                    birthdate: userDAO.birthday,
+                    email: userDAO.email,
+                    country: userDAO.country,
+                    nationality: userDAO.nationality,
+                    avatar: userDAO.avatar)
     }
     
     func forceUpdateUsers(completion: @escaping ServiceCompletion) {
@@ -77,8 +82,15 @@ class DataManager {
         }
     }
     
-    private func loadUsersFromDB() -> Results<UserDAO> {
-        return DatabaseManager.shared.loadUsers()
+    private func loadUsersFromDB() -> Array<User> {
+        var data = Array(DatabaseManager.shared.loadUsers()).compactMap({convert(userDAO: $0)})
+        data.sort { (user1, user2) -> Bool in
+            guard let date1 = user1.birthdate, let date2 = user2.birthdate else {
+                return false
+            }
+            return date1 > date2
+        }
+        return data
     }
     
     private func save(users: UsersDTO) {
@@ -97,6 +109,7 @@ class DataManager {
         
         let localUser = UserDAO(uuid: userUUID,
                                 avatar: user.picture?.large,
+                                title: user.name?.title,
                                 firstName: user.name?.first,
                                 lastName: user.name?.last,
                                 email: user.email,
@@ -110,16 +123,10 @@ class DataManager {
         DatabaseManager.shared.save(user: localUser)
     }
     
-    private func postToMain(results: Results<UserDAO>, completion: @escaping ServiceCompletion) {
-        let resultsRef = ThreadSafeReference(to: results)
+    private func postToMain(results: Array<User>, completion: @escaping ServiceCompletion) {
         DispatchQueue.main.async {
             autoreleasepool{
-                let realm = try! Realm()
-                guard let users = realm.resolve(resultsRef) else {
-                    completion(.failure(msg: "Error al obtener la referencia al objeto."))
-                    return
-                }
-                completion(.success(data: users))
+                completion(.success(data: results))
             }
         }
     }

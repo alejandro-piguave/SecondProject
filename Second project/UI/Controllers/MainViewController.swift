@@ -16,30 +16,65 @@ class MainViewController: UIViewController {
     
     var users: Array<User>?
     
+    enum DisplayMode: Int {
+        case TableMode, CollectionMode
+    }
+    
+    private var displayMode = DisplayMode.TableMode
+    private let tableRefreshControl = UIRefreshControl()
+    private let collectionRefreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        segmentedControl.addTarget(self, action: #selector(MainViewController.onSegmentedControlValueChanged), for: .valueChanged)
-        configureDisplayInformation()
+        configureDisplay()
     }
     
     @objc func onSegmentedControlValueChanged( sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            collectionView.isHidden = true
-            tableView.isHidden = false
+            set(displayMode: .TableMode)
         case 1:
-            collectionView.isHidden = false
-            tableView.isHidden = true
+            set(displayMode: .CollectionMode)
         default:
             return
         }
+    }
+    private func set(displayMode newDisplayMode: DisplayMode) {
+        switch newDisplayMode {
+        case .CollectionMode:
+            collectionView.isHidden = false
+            tableView.isHidden = true
+            segmentedControl.selectedSegmentIndex = 1
+        case .TableMode:
+            collectionView.isHidden = true
+            tableView.isHidden = false            
+            segmentedControl.selectedSegmentIndex = 0
+        }
+        self.displayMode = newDisplayMode
+        saveDisplayMode()
+    }
+    
+    private func loadDisplayMode() -> DisplayMode {
+        return DisplayMode(rawValue: UserDefaults.standard.integer(forKey: "DisplayMode") )!
+    }
+    
+    private func saveDisplayMode() {
+        UserDefaults.standard.set(displayMode.rawValue, forKey: "DisplayMode")
     }
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource{
     
-    private func configureDisplayInformation() {
+    private func configureDisplay() {
+        configureRefreshControllers()
+        configureLists()
+        
+        segmentedControl.addTarget(self, action: #selector(MainViewController.onSegmentedControlValueChanged), for: .valueChanged)
+        set(displayMode: loadDisplayMode())
+    }
+    
+    private func configureLists() {
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -49,10 +84,39 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
         collectionView.dataSource = self
         
         collectionView.register(UINib(nibName: "PersonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PersonCollectionViewCell")
-        
-        collectionView.isHidden = true
     }
     
+    private func configureRefreshControllers() {
+        tableRefreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        tableRefreshControl.attributedTitle = NSAttributedString(string: "Actualizando usuarios...")
+        tableView.refreshControl = tableRefreshControl
+        
+        collectionRefreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        collectionRefreshControl.attributedTitle = NSAttributedString(string: "Actualizando usuarios...")
+        collectionView.refreshControl = collectionRefreshControl
+    }
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        DataManager.shared.forceUpdateUsers { result in
+            switch result {
+            case .success(data: let data):
+                guard let results = data as? Array<User> else{
+                    return
+                }
+                self.users = results
+                
+
+                self.tableView.reloadData()
+                self.collectionView.reloadData()
+                
+                refreshControl.endRefreshing()
+            case .failure(msg: let msg):
+                print("Error: \(msg)")
+                refreshControl.endRefreshing()
+            }
+        }
+        
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users?.count ?? 0
     }

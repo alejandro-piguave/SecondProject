@@ -14,7 +14,6 @@ class DatabaseManager {
     
     private init() {}
     
-    
     func save(user: UserDAO) {
         let realm = try! Realm()
         try! realm.write {

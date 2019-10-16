@@ -10,7 +10,6 @@ import UIKit
 import Kingfisher
 
 class PersonCollectionViewCell: UICollectionViewCell {
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,15 +27,29 @@ class PersonCollectionViewCell: UICollectionViewCell {
             personView.layer.shadowRadius = 4.0
         }
     }
-    @IBOutlet weak var personImage: UIImageView!
+    @IBOutlet weak var personImage: UIImageView! {
+        didSet {
+            personImage.layer.masksToBounds = false
+            personImage.layer.cornerRadius = 10
+            personImage.clipsToBounds = true
+        }
+    }
     @IBOutlet weak var personNameLabel: UILabel!
+    @IBOutlet weak var personMailLabel: UILabel!
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        personImage.image = nil
+        personMailLabel.text = nil
+        personNameLabel.text = nil
+    }
     
     func configure(from user: User) {
         if let userImg = user.img {
             let url = URL(string: userImg)
             personImage.kf.setImage(with: url)
         }
-        personNameLabel.text = user.name
+        personNameLabel.text = "\(user.name) \(user.flag)"
+        personMailLabel.text = user.email
     }
 }
