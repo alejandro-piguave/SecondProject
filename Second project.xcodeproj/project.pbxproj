@@ -28,6 +28,8 @@
 		D99FC68E2347C80000A4F411 /* UserLoginDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99FC68D2347C80000A4F411 /* UserLoginDTO.swift */; };
 		D99FC6902347C95700A4F411 /* UserPictureDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99FC68F2347C95700A4F411 /* UserPictureDTO.swift */; };
 		D99FC6922347CC7B00A4F411 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99FC6912347CC7B00A4F411 /* DataManager.swift */; };
+		D9A7F17D23575EF800048EA8 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9A7F17C23575EF800048EA8 /* Detail.storyboard */; };
+		D9A7F17F23575F5100048EA8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A7F17E23575F5100048EA8 /* DetailViewController.swift */; };
 		D9C3A1B82345036500D6E042 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C3A1B72345036500D6E042 /* AppDelegate.swift */; };
 		D9C3A1BA2345036500D6E042 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C3A1B92345036500D6E042 /* SplashViewController.swift */; };
 		D9C3A1BD2345036500D6E042 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9C3A1BB2345036500D6E042 /* Main.storyboard */; };
@@ -100,6 +102,8 @@
 		D99FC68D2347C80000A4F411 /* UserLoginDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginDTO.swift; sourceTree = "<group>"; };
 		D99FC68F2347C95700A4F411 /* UserPictureDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPictureDTO.swift; sourceTree = "<group>"; };
 		D99FC6912347CC7B00A4F411 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		D9A7F17C23575EF800048EA8 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		D9A7F17E23575F5100048EA8 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		D9C3A1B42345036500D6E042 /* Second project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Second project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C3A1B72345036500D6E042 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9C3A1B92345036500D6E042 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -336,6 +340,7 @@
 				D9C3A1C02345036F00D6E042 /* LaunchScreen.storyboard */,
 				D9C3A1BB2345036500D6E042 /* Main.storyboard */,
 				D9E80B6723464B1600ABF568 /* Splash.storyboard */,
+				D9A7F17C23575EF800048EA8 /* Detail.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 			children = (
 				D9C3A1B92345036500D6E042 /* SplashViewController.swift */,
 				D9E80B822346515D00ABF568 /* MainViewController.swift */,
+				D9A7F17E23575F5100048EA8 /* DetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -509,6 +515,7 @@
 				D9E80B8C2346631900ABF568 /* PersonTableViewCell.xib in Resources */,
 				D9C3A1BF2345036F00D6E042 /* Assets.xcassets in Resources */,
 				D9E80B7723464D8F00ABF568 /* 60.png in Resources */,
+				D9A7F17D23575EF800048EA8 /* Detail.storyboard in Resources */,
 				D9C3A1E62345229200D6E042 /* Podfile in Resources */,
 				D9E80B6823464B1600ABF568 /* Splash.storyboard in Resources */,
 				D9E80B7823464D8F00ABF568 /* 58.png in Resources */,
@@ -647,6 +654,7 @@
 			files = (
 				D99FC68A2347C4AA00A4F411 /* UserLocationDTO.swift in Sources */,
 				D982AAFD234B80FA004F0A89 /* UserIDDTO.swift in Sources */,
+				D9A7F17F23575F5100048EA8 /* DetailViewController.swift in Sources */,
 				D99FC6922347CC7B00A4F411 /* DataManager.swift in Sources */,
 				D99FC68E2347C80000A4F411 /* UserLoginDTO.swift in Sources */,
 				D9E80B832346515D00ABF568 /* MainViewController.swift in Sources */,
