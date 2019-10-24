@@ -76,7 +76,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Users" id="nvs-0R-e6Q"/>
+                    <navigationItem key="navigationItem" title="Users" id="nvs-0R-e6Q">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="F8j-Sm-y9u">
+                            <connections>
+                                <segue destination="e78-6E-jKN" kind="show" id="RMg-76-COG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="MAi-Oe-c9a" id="VPB-YI-vHs"/>
                         <outlet property="segmentedControl" destination="zvO-9K-Fam" id="piD-3O-VN6"/>
@@ -88,13 +94,21 @@
             </objects>
             <point key="canvasLocation" x="954" y="-326"/>
         </scene>
+        <!--AddUser-->
+        <scene sceneID="pkH-4c-GVq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddUser" id="e78-6E-jKN" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9O7-ju-avi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1692" y="-412"/>
+        </scene>
         <!--Detail-->
         <scene sceneID="eee-hn-s5X">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="Detail" storyboardName="Detail" id="EUb-wv-Dgq" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAI-di-log" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1632" y="-326"/>
+            <point key="canvasLocation" x="1691" y="-260"/>
         </scene>
         <!--Main Navigation Controller-->
         <scene sceneID="2da-bb-clw">

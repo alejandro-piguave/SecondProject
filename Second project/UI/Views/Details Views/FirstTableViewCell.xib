@@ -86,7 +86,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="personAgeLabel" destination="6pj-E9-3vF" id="OzX-qm-98L"/>
+                <outlet property="personAgeLabel" destination="6pj-E9-3vF" id="9fP-8C-i6k"/>
                 <outlet property="personGenderLabel" destination="yKL-0e-7Jk" id="BUI-qZ-nIv"/>
                 <outlet property="personImage" destination="gYw-Jk-H6j" id="i3D-jr-S3p"/>
                 <outlet property="personNameLabel" destination="gFi-0E-0xc" id="QGv-qu-Sa5"/>

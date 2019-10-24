@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ThirdAddCell" rowHeight="107" id="jWr-oP-3QR" customClass="ThirdAddCell" customModule="Second_project" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="107"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jWr-oP-3QR" id="Dic-sH-j4p">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="106.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oae-CV-IFx">
+                        <rect key="frame" x="12" y="12" width="390" height="82.5"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YID-gZ-GwB">
+                                <rect key="frame" x="12" y="12" width="366" height="58.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n53-qM-sTb">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="o90-H6-tph">
+                                        <rect key="frame" x="0.0" y="28" width="366" height="31.5"/>
+                                        <segments>
+                                            <segment title="Male"/>
+                                            <segment title="Female"/>
+                                        </segments>
+                                    </segmentedControl>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="n53-qM-sTb" firstAttribute="leading" secondItem="YID-gZ-GwB" secondAttribute="leading" id="4UX-4g-2wY"/>
+                                    <constraint firstAttribute="trailing" secondItem="n53-qM-sTb" secondAttribute="trailing" id="NIy-l0-1vz"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="YID-gZ-GwB" secondAttribute="bottom" constant="12" id="0VB-YU-nqt"/>
+                            <constraint firstItem="YID-gZ-GwB" firstAttribute="top" secondItem="oae-CV-IFx" secondAttribute="top" constant="12" id="KjB-0N-p50"/>
+                            <constraint firstItem="YID-gZ-GwB" firstAttribute="leading" secondItem="oae-CV-IFx" secondAttribute="leading" constant="12" id="Lep-qR-kzS"/>
+                            <constraint firstAttribute="trailing" secondItem="YID-gZ-GwB" secondAttribute="trailing" constant="12" id="cWH-W4-pAz"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="oae-CV-IFx" secondAttribute="trailing" constant="12" id="MyT-7Z-9ml"/>
+                    <constraint firstAttribute="bottom" secondItem="oae-CV-IFx" secondAttribute="bottom" constant="12" id="NeE-j4-8ln"/>
+                    <constraint firstItem="oae-CV-IFx" firstAttribute="top" secondItem="Dic-sH-j4p" secondAttribute="top" constant="12" id="ayI-4b-H2r"/>
+                    <constraint firstItem="oae-CV-IFx" firstAttribute="leading" secondItem="Dic-sH-j4p" secondAttribute="leading" constant="12" id="pBZ-Wn-8SV"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="personView" destination="oae-CV-IFx" id="6vY-ap-0Ya"/>
+            </connections>
+            <point key="canvasLocation" x="47.826086956521742" y="19.754464285714285"/>
+        </tableViewCell>
+    </objects>
+</document>
