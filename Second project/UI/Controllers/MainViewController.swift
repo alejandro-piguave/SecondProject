@@ -65,7 +65,6 @@ class MainViewController: UIViewController {
 }
 extension MainViewController: DeleteDelegate {
     func onUserDeleted(user: User) {
-        print("ACTUALIZANDO LISTAS...")
         users = users?.filter({$0.id != user.id})
         tableView.reloadData()
         collectionView.reloadData()
@@ -76,6 +75,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
     private func configureDisplay() {
         configureRefreshControllers()
         configureLists()
+        
         
         segmentedControl.addTarget(self, action: #selector(MainViewController.onSegmentedControlValueChanged), for: .valueChanged)
         set(displayMode: loadDisplayMode())

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FifthAddCell" rowHeight="372" id="Ydh-lz-Ft3" customClass="FifthAddCell" customModule="Second_project" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="372"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ydh-lz-Ft3" id="xRk-Ux-UVA">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="371.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GqR-of-enm">
+                        <rect key="frame" x="12" y="12" width="390" height="347.5"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="WA2-AV-S2Q">
+                                <rect key="frame" x="12" y="12" width="366" height="323.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPK-C2-cvj">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <pickerView contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6l1-oa-TNR">
+                                        <rect key="frame" x="0.0" y="27" width="366" height="162.5"/>
+                                    </pickerView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mmV-uG-7WZ">
+                                        <rect key="frame" x="0.0" y="199.5" width="366" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e0y-hB-p0D">
+                                        <rect key="frame" x="0.0" y="226.5" width="366" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Street" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOU-mG-Q5A">
+                                        <rect key="frame" x="0.0" y="266.5" width="366" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sJu-0Z-d3E">
+                                        <rect key="frame" x="0.0" y="293.5" width="366" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="NPK-C2-cvj" firstAttribute="leading" secondItem="WA2-AV-S2Q" secondAttribute="leading" id="B5z-dJ-dtV"/>
+                                    <constraint firstAttribute="trailing" secondItem="NPK-C2-cvj" secondAttribute="trailing" id="ngT-DB-Vf8"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="WA2-AV-S2Q" secondAttribute="trailing" constant="12" id="13f-7q-Lmc"/>
+                            <constraint firstItem="WA2-AV-S2Q" firstAttribute="leading" secondItem="GqR-of-enm" secondAttribute="leading" constant="12" id="MKT-07-SUU"/>
+                            <constraint firstItem="WA2-AV-S2Q" firstAttribute="top" secondItem="GqR-of-enm" secondAttribute="top" constant="12" id="bSZ-79-4x4"/>
+                            <constraint firstAttribute="bottom" secondItem="WA2-AV-S2Q" secondAttribute="bottom" constant="12" id="hsC-2s-FkI"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="GqR-of-enm" secondAttribute="trailing" constant="12" id="QvB-9O-DZq"/>
+                    <constraint firstItem="GqR-of-enm" firstAttribute="leading" secondItem="xRk-Ux-UVA" secondAttribute="leading" constant="12" id="e6G-cg-f5P"/>
+                    <constraint firstAttribute="bottom" secondItem="GqR-of-enm" secondAttribute="bottom" constant="12" id="mtj-c1-bkG"/>
+                    <constraint firstItem="GqR-of-enm" firstAttribute="top" secondItem="xRk-Ux-UVA" secondAttribute="top" constant="12" id="sGP-vU-oca"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="cityTF" destination="e0y-hB-p0D" id="r4I-MR-SiQ"/>
+                <outlet property="personView" destination="GqR-of-enm" id="HFp-Px-jCo"/>
+                <outlet property="pickerView" destination="6l1-oa-TNR" id="AzC-JZ-9DX"/>
+                <outlet property="streetTF" destination="sJu-0Z-d3E" id="I6C-Le-gnT"/>
+            </connections>
+            <point key="canvasLocation" x="31.884057971014496" y="132.58928571428572"/>
+        </tableViewCell>
+    </objects>
+</document>
