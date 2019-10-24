@@ -26,9 +26,9 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         configureDisplay()
     }
+    
     
     @objc func onSegmentedControlValueChanged( sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
@@ -63,7 +63,14 @@ class MainViewController: UIViewController {
         UserDefaults.standard.set(displayMode.rawValue, forKey: "DisplayMode")
     }
 }
-
+extension MainViewController: DeleteDelegate {
+    func onUserDeleted(user: User) {
+        print("ACTUALIZANDO LISTAS...")
+        users = users?.filter({$0.id != user.id})
+        tableView.reloadData()
+        collectionView.reloadData()
+    }
+}
 extension MainViewController: UITableViewDelegate, UITableViewDataSource{
     
     private func configureDisplay() {
@@ -88,11 +95,11 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
     
     private func configureRefreshControllers() {
         tableRefreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
-        tableRefreshControl.attributedTitle = NSAttributedString(string: "Actualizando usuarios...")
+        tableRefreshControl.attributedTitle = NSAttributedString(string: NSLocalizedString("UPDATING_USERS", comment: ""))
         tableView.refreshControl = tableRefreshControl
         
         collectionRefreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
-        collectionRefreshControl.attributedTitle = NSAttributedString(string: "Actualizando usuarios...")
+        collectionRefreshControl.attributedTitle = NSAttributedString(string: NSLocalizedString("UPDATING_USERS", comment: ""))
         collectionView.refreshControl = collectionRefreshControl
     }
     
@@ -104,7 +111,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
                     return
                 }
                 self.users = results
-                
 
                 self.tableView.reloadData()
                 self.collectionView.reloadData()
@@ -115,7 +121,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
                 refreshControl.endRefreshing()
             }
         }
-        
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users?.count ?? 0
@@ -127,6 +132,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource{
         }
         cell.configure(from: user)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "OpenDetail", sender: tableView.cellForRow(at: indexPath))
     }
 }
 
@@ -155,4 +164,31 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cellWidth = (UIScreen.main.bounds.width - 16.0) / 2.0
         return CGSize(width: cellWidth, height:  cellWidth * 1.33)
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "OpenDetail", sender: collectionView.cellForItem(at: indexPath))
+    }
 }
+
+extension MainViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? DetailViewController {
+
+            if let cell = sender as? UITableViewCell,
+                let indexPath = tableView.indexPath(for: cell),
+                let user = users?[indexPath.row] {
+                    destination.user = user
+                
+                destination.deleteDelegate = self
+            }
+            
+            if let cell = sender as? UICollectionViewCell,
+                let indexPath = collectionView.indexPath(for: cell),
+                let user = users?[indexPath.row] {
+                destination.user = user
+                destination.deleteDelegate = self
+            }
+            
+        }
+    }
+}
+

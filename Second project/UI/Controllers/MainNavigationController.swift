@@ -6,4 +6,6 @@
 //  Copyright © 2019 Dev2. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class MainNavigationController: UINavigationController {}

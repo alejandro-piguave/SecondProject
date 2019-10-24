@@ -49,7 +49,7 @@ class PersonCollectionViewCell: UICollectionViewCell {
             let url = URL(string: userImg)
             personImage.kf.setImage(with: url)
         }
-        personNameLabel.text = "\(user.name) \(user.flag)"
+        personNameLabel.text = "\(user.nameAndAge) \(user.flag)"
         personMailLabel.text = user.email
     }
 }

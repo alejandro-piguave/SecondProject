@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+protocol DeleteDelegate: class {
+    func onUserDeleted(user: User)
+}

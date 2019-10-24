@@ -30,10 +30,12 @@ class SplashViewController: UIViewController {
             switch result {
             case .success(data: let data):
                 let next = UIStoryboard(name: "Main", bundle: nil)
-                guard let results = data as? Array<User>, let vc = next.instantiateInitialViewController() as? MainViewController else {
+                guard let results = data as? Array<User>,
+                    let vc = next.instantiateInitialViewController() as? MainNavigationController,
+                    let childVC = vc.topViewController as? MainViewController else {
                     return
                 }
-                vc.users = results
+                childVC.users = results
                 
                 self.present(vc, animated: true, completion: nil)
             case .failure(msg: let msg):

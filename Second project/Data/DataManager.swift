@@ -30,13 +30,21 @@ class DataManager {
     
     private func convert(userDAO: UserDAO) -> User {
         return User(id: userDAO.uuid,
+                    gender: userDAO.gender,
                     title: userDAO.title,
                     firstName: userDAO.firstName,
                     lastName: userDAO.lastName,
                     birthdate: userDAO.birthday,
                     email: userDAO.email,
+                    phone: userDAO.phone,
+                    cell: userDAO.cell,
                     country: userDAO.country,
+                    city: userDAO.city,
+                    streetName: userDAO.streetName,
+                    streetNumber: userDAO.streetNumber.value,
                     nationality: userDAO.nationality,
+                    longitude: userDAO.longitude,
+                    latitude: userDAO.latitude,
                     avatar: userDAO.avatar)
     }
     
@@ -113,9 +121,14 @@ class DataManager {
                                 firstName: user.name?.first,
                                 lastName: user.name?.last,
                                 email: user.email,
+                                phone: user.phone,
+                                cell: user.cell,
                                 gender: user.gender,
                                 birthdate: dateFormatter.date(from: userDateString),
                                 country: user.location?.country,
+                                city: user.location?.city,
+                                streetName: user.location?.street?.name,
+                                streetNumber: user.location?.street?.number,
                                 nationality: user.nat,
                                 latitude: user.location?.coordinates?.latitude,
                                 longitude: user.location?.coordinates?.longitude)

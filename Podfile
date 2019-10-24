@@ -4,20 +4,14 @@
 target 'Second project' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
+  
+  
+  pod 'Fabric', '~> 1.10.2'
+  pod 'Crashlytics', '~> 3.13.4'
+  
   pod 'RealmSwift'
   pod 'lottie-ios'
   pod 'Kingfisher'
   pod 'Alamofire'
-
-  # Pods for Second project
-
-  target 'Second projectTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'Second projectUITests' do
-    # Pods for testing
-  end
-
+  pod 'Firebase/Analytics'
 end

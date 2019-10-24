@@ -18,34 +18,22 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="60.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f0l-6J-Pxz">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="peF-v1-ILq">
                         <rect key="frame" x="12" y="12" width="390" height="36.5"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delete" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uk5-aT-5s5">
-                                <rect key="frame" x="12" y="12" width="366" height="12.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="0.2316409545" blue="0.269364504" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="uk5-aT-5s5" firstAttribute="leading" secondItem="f0l-6J-Pxz" secondAttribute="leading" constant="12" id="8X1-hW-Ybw"/>
-                            <constraint firstAttribute="trailing" secondItem="uk5-aT-5s5" secondAttribute="trailing" constant="12" id="KdG-e1-ZNZ"/>
-                            <constraint firstAttribute="bottom" secondItem="uk5-aT-5s5" secondAttribute="bottom" constant="12" id="cxX-KC-bis"/>
-                            <constraint firstItem="uk5-aT-5s5" firstAttribute="top" secondItem="f0l-6J-Pxz" secondAttribute="top" constant="12" id="neU-le-zDb"/>
-                        </constraints>
-                    </view>
+                        <state key="normal" title="Delete">
+                            <color key="titleColor" red="1" green="0.2316409545" blue="0.269364504" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="f0l-6J-Pxz" secondAttribute="trailing" constant="12" id="2hT-QR-xjL"/>
-                    <constraint firstItem="f0l-6J-Pxz" firstAttribute="top" secondItem="32s-Vo-XxU" secondAttribute="top" constant="12" id="6h7-Hf-YjH"/>
-                    <constraint firstItem="f0l-6J-Pxz" firstAttribute="leading" secondItem="32s-Vo-XxU" secondAttribute="leading" constant="12" id="MWr-Cf-tMA"/>
-                    <constraint firstAttribute="bottom" secondItem="f0l-6J-Pxz" secondAttribute="bottom" constant="12" id="bhH-Xa-vn2"/>
+                    <constraint firstAttribute="bottom" secondItem="peF-v1-ILq" secondAttribute="bottom" constant="12" id="3ea-67-VVO"/>
+                    <constraint firstItem="peF-v1-ILq" firstAttribute="leading" secondItem="32s-Vo-XxU" secondAttribute="leading" constant="12" id="P1s-CM-G2E"/>
+                    <constraint firstAttribute="trailing" secondItem="peF-v1-ILq" secondAttribute="trailing" constant="12" id="uDE-7T-hdI"/>
+                    <constraint firstItem="peF-v1-ILq" firstAttribute="top" secondItem="32s-Vo-XxU" secondAttribute="top" constant="12" id="zjh-mx-h83"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="personView" destination="f0l-6J-Pxz" id="xIw-Nq-EbN"/>
+                <outlet property="deleteButton" destination="peF-v1-ILq" id="DSo-Bs-KQH"/>
             </connections>
             <point key="canvasLocation" x="47.826086956521742" y="4.3526785714285712"/>
         </tableViewCell>

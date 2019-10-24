@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  Second project
+
+  Created by Dev2 on 18/10/2019.
+  Copyright © 2019 Dev2. All rights reserved.
+*/
+
+"MAIL" = "Mail: %@";
+"PHONE" = "Phone: %@";
+"CELL" = "Cell: %@";
+"WARNING" = "Warning";
+"WARNING_ALERT_MESSAGE" = "Are you sure you want to delete %@?";
+"CANCEL" = "Cancel";
+"DELETE" = "Delete";
+"UPDATING_USERS" = "Updating users...";

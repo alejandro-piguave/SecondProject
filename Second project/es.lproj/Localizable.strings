@@ -5,5 +5,12 @@
   Created by Dev2 on 18/10/2019.
   Copyright © 2019 Dev2. All rights reserved.
 */
-"USERS" = "Users";
-"DETAILS" = "Details";
+
+"MAIL" = "Correo: %@";
+"PHONE" = "Teléfono: %@";
+"CELL" = "Móvil: %@";
+"WARNING" = "Atención";
+"WARNING_ALERT_MESSAGE" = "¿Estás seguro de que quieres eliminar a %@?";
+"CANCEL" = "Cancelar";
+"DELETE" = "Eliminar";
+"UPDATING_USERS" = "Actualizando usuarios...";

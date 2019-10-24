@@ -54,7 +54,7 @@ class PersonTableViewCell: UITableViewCell {
             let url = URL(string: userImg)
             personImage.kf.setImage(with: url)
         }
-        personNameLabel.text = user.name
+        personNameLabel.text = user.nameAndAge
         personMailLabel.text = user.email
         personNationality.text = user.flag
     }

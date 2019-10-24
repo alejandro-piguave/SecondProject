@@ -1,6 +1,0 @@
-framework module Pods_Second_projectTests {
-  umbrella header "Pods-Second projectTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -1,9 +1,3 @@
 
-/* Class = "UILabel"; text = "text 1"; ObjectID = "7fr-ig-2sV"; */
-"7fr-ig-2sV.text" = "text 1";
-
 /* Class = "UILabel"; text = "Localización"; ObjectID = "Amc-WG-XoK"; */
-"Amc-WG-XoK.text" = "Localización";
-
-/* Class = "UILabel"; text = "text 2"; ObjectID = "MAV-cZ-nLG"; */
-"MAV-cZ-nLG.text" = "text 2";
+"Amc-WG-XoK.text" = "Información de ubicación";
