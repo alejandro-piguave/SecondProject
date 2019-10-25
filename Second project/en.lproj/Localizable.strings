@@ -13,4 +13,7 @@
 "WARNING_ALERT_MESSAGE" = "Are you sure you want to delete %@?";
 "CANCEL" = "Cancel";
 "DELETE" = "Delete";
+"ACCEPT" = "Accept";
+"SAVE" = "Save";
+"MISSING_INFO_MSG" = "There are fields that have not been filled yet.";
 "UPDATING_USERS" = "Updating users...";

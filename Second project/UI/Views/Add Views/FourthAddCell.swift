@@ -11,6 +11,10 @@ import UIKit
 class FourthAddCell: UITableViewCell {
     @IBOutlet weak var personView: UIView!
     @IBOutlet weak var datePicker: UIDatePicker!
+    static var typeName: String {
+        return String(describing: self)
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,11 +34,4 @@ class FourthAddCell: UITableViewCell {
         let maxDate = calendar.date(byAdding: comps, to: Date())
         datePicker.maximumDate = maxDate
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }

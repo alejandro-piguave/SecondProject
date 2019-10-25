@@ -43,8 +43,8 @@ class DataManager {
                     streetName: userDAO.streetName,
                     streetNumber: userDAO.streetNumber.value,
                     nationality: userDAO.nationality,
-                    longitude: userDAO.longitude,
-                    latitude: userDAO.latitude,
+                    longitude: userDAO.longitude.value,
+                    latitude: userDAO.latitude.value,
                     avatar: userDAO.avatar)
     }
     
@@ -130,8 +130,8 @@ class DataManager {
                                 streetName: user.location?.street?.name,
                                 streetNumber: user.location?.street?.number,
                                 nationality: user.nat,
-                                latitude: user.location?.coordinates?.latitude,
-                                longitude: user.location?.coordinates?.longitude)
+                                latitude: Double(user.location?.coordinates?.latitude ?? "0.0"),
+                                longitude: Double(user.location?.coordinates?.longitude ?? "0.0"))
         
         DatabaseManager.shared.save(user: localUser)
     }

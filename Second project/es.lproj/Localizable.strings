@@ -13,4 +13,7 @@
 "WARNING_ALERT_MESSAGE" = "¿Estás seguro de que quieres eliminar a %@?";
 "CANCEL" = "Cancelar";
 "DELETE" = "Eliminar";
+"ACCEPT" = "Aceptar";
+"SAVE" = "Guardar";
+"MISSING_INFO_MSG" = "Aún quedan campos sin rellenar.";
 "UPDATING_USERS" = "Actualizando usuarios...";

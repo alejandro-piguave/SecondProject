@@ -9,13 +9,19 @@
 import UIKit
 
 class FifthAddCell: UITableViewCell {
+    static var typeName: String {
+        return String(describing: self)
+    }
     
     @IBOutlet weak var personView: UIView!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var cityTF: UITextField!
-    @IBOutlet weak var streetTF: UITextField!
+    @IBOutlet weak var streetNameTF: UITextField!
+    @IBOutlet weak var streetNumberTF: UITextField!
     
-    private var countries = [String]()
+    var countries = Array<CountryDTO>()
+    
+    var selectedCountry: CountryDTO?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,15 +37,13 @@ class FifthAddCell: UITableViewCell {
         pickerView.delegate = self
         pickerView.dataSource = self
         
+        streetNumberTF.delegate = self
+        streetNumberTF.keyboardType = .numberPad
+        
         if let path = Bundle.main.path(forResource: "countries", ofType: "json") {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                
-                // let item = try JSONDecoder().decode(UsersDTO.self, from: responseData)
-                //let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
-                let jsonResult = try JSONDecoder().decode(Array<CountryDTO>.self, from: data)
-                jsonResult.forEach({countries.append(getCountryInfo(from: $0))})
-
+                countries = try JSONDecoder().decode(Array<CountryDTO>.self, from: data)
             } catch {
                 print("ERRORRRRRRRR")
                 // handle error
@@ -47,12 +51,6 @@ class FifthAddCell: UITableViewCell {
         }
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     private func getCountryInfo(from countryDTO: CountryDTO) -> String {
         return "\(countryDTO.name ?? "") \(flag(from: countryDTO.code))"
     }
@@ -66,19 +64,25 @@ class FifthAddCell: UITableViewCell {
             s.unicodeScalars.append(UnicodeScalar(base + v.value)!)
         }
         return String(s)
-
+    }
+}
+extension FifthAddCell: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let invalidCharacters = CharacterSet(charactersIn: "0123456789").inverted
+        return string.rangeOfCharacter(from: invalidCharacters) == nil
     }
 }
 extension FifthAddCell: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return countries.count
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return countries[row]
+        return getCountryInfo(from: countries[row])
     }
-    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedCountry = countries[row]
+    }
 }

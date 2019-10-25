@@ -12,7 +12,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var user: User?
-    weak var deleteDelegate: DeleteDelegate?
+    weak var updateDelegate: UpdateDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,7 @@ class DetailViewController: UIViewController {
             DispatchQueue.global(qos: .background).async {
                 DatabaseManager.shared.delete(id: realUser.id)
                 DispatchQueue.main.async {
-                    self.deleteDelegate?.onUserDeleted(user: realUser)
+                    self.updateDelegate?.onUserDeleted(user: realUser)
                     self.navigationController?.popViewController(animated: true)
                 }
             }

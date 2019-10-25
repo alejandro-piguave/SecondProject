@@ -32,7 +32,7 @@
 		D982AB01234BAEE5004F0A89 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D982AB00234BAEE5004F0A89 /* APIManager.swift */; };
 		D98C39472360C90B00E66B55 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D98C39462360C90B00E66B55 /* GoogleService-Info.plist */; };
 		D998A3D4234CEEC200DD039B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D998A3D3234CEEC200DD039B /* User.swift */; };
-		D99F8E7E235F73A30012F025 /* DeleteDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99F8E7D235F73A30012F025 /* DeleteDelegate.swift */; };
+		D99F8E7E235F73A30012F025 /* UpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99F8E7D235F73A30012F025 /* UpdateDelegate.swift */; };
 		D99F8E81235F797D0012F025 /* FifthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99F8E7F235F797D0012F025 /* FifthTableViewCell.swift */; };
 		D99F8E83235F7C6B0012F025 /* FifthTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D99F8E85235F7C6B0012F025 /* FifthTableViewCell.xib */; };
 		D99FC67923478ECE00A4F411 /* loading-ring.json in Resources */ = {isa = PBXBuildFile; fileRef = D99FC67823478ECE00A4F411 /* loading-ring.json */; };
@@ -130,7 +130,7 @@
 		D982AB00234BAEE5004F0A89 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		D98C39462360C90B00E66B55 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D998A3D3234CEEC200DD039B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		D99F8E7D235F73A30012F025 /* DeleteDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteDelegate.swift; sourceTree = "<group>"; };
+		D99F8E7D235F73A30012F025 /* UpdateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDelegate.swift; sourceTree = "<group>"; };
 		D99F8E7F235F797D0012F025 /* FifthTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthTableViewCell.swift; sourceTree = "<group>"; };
 		D99F8E84235F7C6B0012F025 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/FifthTableViewCell.xib; sourceTree = "<group>"; };
 		D99F8E8B235F86A50012F025 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/FifthTableViewCell.strings; sourceTree = "<group>"; };
@@ -293,7 +293,7 @@
 		D99F8E7C235F73300012F025 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				D99F8E7D235F73A30012F025 /* DeleteDelegate.swift */,
+				D99F8E7D235F73A30012F025 /* UpdateDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -708,7 +708,7 @@
 				D99FC68A2347C4AA00A4F411 /* UserLocationDTO.swift in Sources */,
 				D982AAFD234B80FA004F0A89 /* UserIDDTO.swift in Sources */,
 				D99F8E81235F797D0012F025 /* FifthTableViewCell.swift in Sources */,
-				D99F8E7E235F73A30012F025 /* DeleteDelegate.swift in Sources */,
+				D99F8E7E235F73A30012F025 /* UpdateDelegate.swift in Sources */,
 				D9A7F17F23575F5100048EA8 /* DetailViewController.swift in Sources */,
 				D9A7F18A2357643900048EA8 /* ThirdTableViewCell.swift in Sources */,
 				D99FC6922347CC7B00A4F411 /* DataManager.swift in Sources */,

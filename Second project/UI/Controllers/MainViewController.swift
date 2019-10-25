@@ -63,7 +63,13 @@ class MainViewController: UIViewController {
         UserDefaults.standard.set(displayMode.rawValue, forKey: "DisplayMode")
     }
 }
-extension MainViewController: DeleteDelegate {
+extension MainViewController: UpdateDelegate {
+    func onUserAdded(user: User) {
+        users?.append(user)
+        tableView.reloadData()
+        collectionView.reloadData()
+    }
+    
     func onUserDeleted(user: User) {
         users = users?.filter({$0.id != user.id})
         tableView.reloadData()
@@ -172,22 +178,21 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
 extension MainViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? DetailViewController {
-
             if let cell = sender as? UITableViewCell,
                 let indexPath = tableView.indexPath(for: cell),
                 let user = users?[indexPath.row] {
-                    destination.user = user
-                
-                destination.deleteDelegate = self
+                destination.user = user
+                destination.updateDelegate = self
             }
-            
             if let cell = sender as? UICollectionViewCell,
                 let indexPath = collectionView.indexPath(for: cell),
                 let user = users?[indexPath.row] {
                 destination.user = user
-                destination.deleteDelegate = self
+                destination.updateDelegate = self
             }
             
+        }else if let destination = segue.destination as? AddUserViewController {
+            destination.updateDelegate = self
         }
     }
 }

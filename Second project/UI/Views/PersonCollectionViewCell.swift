@@ -47,7 +47,7 @@ class PersonCollectionViewCell: UICollectionViewCell {
     func configure(from user: User) {
         if let userImg = user.img {
             let url = URL(string: userImg)
-            personImage.kf.setImage(with: url)
+            personImage.kf.setImage(with: url, placeholder: UIImage(named: "default-user-icon"))
         }
         personNameLabel.text = "\(user.nameAndAge) \(user.flag)"
         personMailLabel.text = user.email

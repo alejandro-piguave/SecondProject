@@ -10,5 +10,5 @@ import Foundation
 
 protocol UpdateDelegate: class {
     func onUserDeleted(user: User)
-    func on
+    func onUserAdded(user: User)
 }

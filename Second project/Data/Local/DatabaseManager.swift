@@ -19,6 +19,7 @@ class DatabaseManager {
         try! realm.write {
             realm.add(user, update: .modified)
         }
+        
     }
     
     func delete(user: UserDAO) {

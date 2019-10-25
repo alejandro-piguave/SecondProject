@@ -21,8 +21,8 @@ class UserDAO: Object {
     let streetNumber = RealmOptional<Int>()
     @objc dynamic var nationality: String?
     
-    @objc dynamic var latitude: String?
-    @objc dynamic var longitude: String?
+    let latitude = RealmOptional<Double>()
+    let longitude = RealmOptional<Double>()
     
     @objc dynamic var email: String?
     @objc dynamic var phone: String?
@@ -48,8 +48,8 @@ class UserDAO: Object {
          streetName: String? = nil,
          streetNumber: Int? = nil,
          nationality: String? = nil,
-         latitude: String? = nil,
-         longitude: String? = nil) {
+         latitude: Double? = nil,
+         longitude: Double? = nil) {
         
         self.init()
         self.uuid = uuid
@@ -67,8 +67,8 @@ class UserDAO: Object {
         self.phone = phone
         self.cell = cell
         self.birthday = birthdate
-        self.latitude = latitude
-        self.longitude = longitude
+        self.latitude.value = latitude
+        self.longitude.value = longitude
     }
     
     override static func primaryKey() -> String? {

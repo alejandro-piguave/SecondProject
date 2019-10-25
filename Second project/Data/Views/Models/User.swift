@@ -23,8 +23,8 @@ class User {
     let streetName: String?
     let streetNumber: Int?
     let nationality: String?
-    let longitude: String?
-    let latitude: String?
+    let longitude: Double?
+    let latitude: Double?
     let img: String?
     
     var nameAndAge: String {
@@ -97,8 +97,8 @@ class User {
          streetName: String? = nil,
          streetNumber: Int? = nil,
          nationality: String? = nil,
-         longitude: String? = nil,
-         latitude: String? = nil,
+         longitude: Double? = nil,
+         latitude: Double? = nil,
          avatar: String? = nil) {
         self.id = id
         self.title = title
