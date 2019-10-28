@@ -9,8 +9,9 @@
 import Foundation
 
 struct CountryDTO: Codable {
-    let code, name: String?
+    let name, code: String?
     enum CodingKeys: String, CodingKey {
-        case code = "Code", name = "Name"
+        case name = "Name"
+        case code = "Code"
     }
 }

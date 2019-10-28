@@ -31,7 +31,7 @@ class User {
         return "\(firstName ?? ""), \(age)"
     }
     var fullName: String {
-        return "\(title ?? "") \(firstName ?? "") \(lastName ?? "")"
+        return "\(firstName ?? "") \(lastName ?? "")"
     }
     var streetInfo: String {
         return "\(streetName ?? ""), \(streetNumber ?? 0)"

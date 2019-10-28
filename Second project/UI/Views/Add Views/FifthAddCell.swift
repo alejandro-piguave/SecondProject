@@ -44,6 +44,7 @@ class FifthAddCell: UITableViewCell {
             do {
                 let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
                 countries = try JSONDecoder().decode(Array<CountryDTO>.self, from: data)
+                selectedCountry = countries[0]
             } catch {
                 print("ERRORRRRRRRR")
                 // handle error

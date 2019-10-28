@@ -45,11 +45,32 @@ class PersonCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(from user: User) {
-        if let userImg = user.img {
-            let url = URL(string: userImg)
-            personImage.kf.setImage(with: url, placeholder: UIImage(named: "default-user-icon"))
-        }
+        configureUserImage(imageLocation: user.img)
         personNameLabel.text = "\(user.nameAndAge) \(user.flag)"
         personMailLabel.text = user.email
+    }
+}
+extension PersonCollectionViewCell {
+    private func configureUserImage(imageLocation: String?) {
+        if let userImg = imageLocation {
+            if let imageUUID = UUID(uuidString: userImg) {
+                let imageUUIDString = imageUUID.uuidString
+                DatabaseManager.shared.loadImage(forKey: imageUUIDString) { (result) in
+                    switch result{
+                    case .success(let data):
+                        if let retrievedImage = data as? UIImage {
+                            personImage.image = retrievedImage
+                        }
+                    default:
+                        return
+                    }
+                }
+            }else {
+                let url = URL(string: userImg)
+                personImage.kf.setImage(with: url)
+            }
+        } else {
+            personImage.image = UIImage(named: "default-user-icon")
+        }
     }
 }

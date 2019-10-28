@@ -79,8 +79,9 @@ class DataManager {
     func user(id: String, completion: @escaping ServiceCompletion) {
         DispatchQueue.global(qos: .background).async {
             if let user = DatabaseManager.shared.loadUser(id: id) {
+                let convertedUser = self.convert(userDAO: user)
                 DispatchQueue.main.async {
-                    completion(.success(data: self.convert(userDAO: user)))
+                    completion(.success(data: convertedUser))
                 }
             }else {
                 DispatchQueue.main.async {
@@ -91,13 +92,13 @@ class DataManager {
     }
     
     private func loadUsersFromDB() -> Array<User> {
-        var data = Array(DatabaseManager.shared.loadUsers()).compactMap({convert(userDAO: $0)})
-        data.sort { (user1, user2) -> Bool in
-            guard let date1 = user1.birthdate, let date2 = user2.birthdate else {
-                return false
-            }
-            return date1 > date2
-        }
+        let data = Array(DatabaseManager.shared.loadUsers()).compactMap({convert(userDAO: $0)})
+//        data.sort { (user1, user2) -> Bool in
+//            guard let date1 = user1.birthdate, let date2 = user2.birthdate else {
+//                return false
+//            }
+//            return date1 > date2
+//        }
         return data
     }
     

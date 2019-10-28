@@ -65,7 +65,7 @@ class MainViewController: UIViewController {
 }
 extension MainViewController: UpdateDelegate {
     func onUserAdded(user: User) {
-        users?.append(user)
+        users?.insert(user, at: 0)
         tableView.reloadData()
         collectionView.reloadData()
     }

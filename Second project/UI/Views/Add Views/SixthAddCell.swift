@@ -34,10 +34,10 @@ class SixthAddCell: UITableViewCell {
         longitudeTF.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
         
         latitudeTF.delegate = self
-        latitudeTF.keyboardType = .numberPad
+        //latitudeTF.keyboardType = .numberPad
         
         longitudeTF.delegate = self
-        longitudeTF.keyboardType = .numberPad
+        //longitudeTF.keyboardType = .numberPad
     }
     @objc func textFieldDidChange() {
         if let l1 = latitudeTF.text, let l2 = longitudeTF.text, let latitude = Double(l1), let longitude = Double(l2) {
@@ -54,19 +54,27 @@ class SixthAddCell: UITableViewCell {
 }
 extension SixthAddCell: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let invalidCharacters = CharacterSet(charactersIn: "0123456789.-").inverted
+        let invalidCharacters = CharacterSet(charactersIn: "-.0123456789").inverted
+        
+  
         
         if string.rangeOfCharacter(from: invalidCharacters) == nil {
-            guard let tfText = textField.text, let number = Double(tfText) else {
+            
+            if let text = textField.text,
+                let textRange = Range(range, in: text),
+                let number = Double(text.replacingCharacters(in: textRange, with: string)){
+                
+                switch textField.tag {
+                 case 0 where number > -90 && number < 90:
+                     return true
+                 case 1 where number > -180 && number < 180:
+                     return true
+                 default: return false
+                 }
+            } else {
                 return true
             }
-            switch textField.tag {
-            case 0 where number > -90 && number < 90:
-                return true
-            case 1 where number > -180 && number < 180:
-                return true
-            default: return false
-            }
+  
         }else {
             return false
         }

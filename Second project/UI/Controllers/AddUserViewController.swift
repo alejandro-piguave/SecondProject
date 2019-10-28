@@ -15,11 +15,14 @@ class AddUserViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     weak var updateDelegate: UpdateDelegate?
+    var imagePicker: ImagePicker!
+    var userImage: UIImage?
     private var cells = Dictionary<String,UITableViewCell>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("SAVE", comment: ""), style: .plain, target: self, action: #selector(saveUser))
     }
     
@@ -36,7 +39,7 @@ class AddUserViewController: UIViewController {
         
         if let firstName = first.firstNameTF.text,
             let lastName = first.lastNameTF.text,
-        //let imgLink = first.userIV.description,
+            let realImage = userImage,
             let email = second.emailTF.text,
             let cellphone = second.cellPhoneTF.text,
             let  housephone = second.housePhoneTF.text,
@@ -52,10 +55,10 @@ class AddUserViewController: UIViewController {
             let longitude = Double(longitudeText) {
             
             let dob = fourth.datePicker.date
+            let imageUUID = UUID().uuidString
             
-            let newUser = UserDAO(uuid: "",
-                                  avatar: nil,
-                                  title: nil,
+            let newUser = UserDAO(uuid: UUID().uuidString,
+                                  avatar: imageUUID,
                                   firstName: firstName,
                                   lastName: lastName,
                                   email: email,
@@ -72,15 +75,14 @@ class AddUserViewController: UIViewController {
                                   longitude: longitude)
             
             DispatchQueue.global(qos: .background).async {
+                DatabaseManager.shared.save(image: realImage, forKey: imageUUID)
                 DatabaseManager.shared.save(user: newUser)
                 DataManager.shared.user(id: newUser.uuid, completion: { result in
                     switch result {
                     case .success(data: let data):
                         if let user = data as? User {
-                            DispatchQueue.main.async {
-                                self.updateDelegate?.onUserAdded(user: user)
-                                self.navigationController?.popViewController(animated: true)
-                            }
+                            self.updateDelegate?.onUserAdded(user: user)
+                            self.navigationController?.popViewController(animated: true)
                         }
                     default:
                         return
@@ -127,6 +129,9 @@ extension AddUserViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FirstAddCell", for: indexPath)
                 as! FirstAddCell
+            cell.onImageViewClicked = {
+                self.imagePicker.present(from: cell.userIV)
+            }
             cells[FirstAddCell.typeName] = cell
             return cell
         case 1:
@@ -157,5 +162,16 @@ extension AddUserViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             return UITableViewCell()
         }
+    }
+}
+extension AddUserViewController: ImagePickerDelegate {
+    func didSelect(image: UIImage?) {
+        if let first = cells[FirstAddCell.typeName] as? FirstAddCell {
+            if let newImage = image{
+                userImage = newImage
+                first.userIV.image = newImage
+            }
+        }
+            
     }
 }

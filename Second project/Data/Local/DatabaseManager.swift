@@ -21,7 +21,24 @@ class DatabaseManager {
         }
         
     }
-    
+    func save(image: UIImage, forKey key: String) {
+        if let pngRepresentation = image.pngData() {
+            UserDefaults.standard.set(pngRepresentation, forKey: key)
+        }
+    }
+    func loadImage(forKey key: String, completion: ServiceCompletion) {
+        DispatchQueue.global(qos: .background).async {
+            if let imageData = UserDefaults.standard.object(forKey: key) as? Data,
+                let image = UIImage(data: imageData) {
+                DispatchQueue.main.async {
+                    completion(.success(data: image))
+                }
+            }else {
+                completion(.failure(msg: "Couldn't retrieve image."))
+            }
+        }
+
+    }
     func delete(user: UserDAO) {
         let realm = try! Realm()
         try! realm.write {

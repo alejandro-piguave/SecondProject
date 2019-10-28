@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,36 +13,34 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="169"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hDu-aW-Lwx" id="zf8-2i-hz8">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="168.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="169"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9uQ-NS-dsi">
-                        <rect key="frame" x="12" y="12" width="390" height="144.5"/>
+                        <rect key="frame" x="12" y="12" width="390" height="145"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="aeL-3O-aua">
-                                <rect key="frame" x="12" y="12" width="233.5" height="120.5"/>
+                                <rect key="frame" x="12" y="12" width="233" height="121"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="First name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GmT-gy-i9Y">
-                                        <rect key="frame" x="0.0" y="0.0" width="233.5" height="18.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="233" height="17"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yeo-yu-2e5">
-                                        <rect key="frame" x="0.0" y="24.5" width="233.5" height="32"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="0.0" y="23" width="233" height="34.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzW-Vm-U2E">
-                                        <rect key="frame" x="0.0" y="62.5" width="233.5" height="18.5"/>
+                                        <rect key="frame" x="0.0" y="63.5" width="233" height="17"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BY5-ie-J4r">
-                                        <rect key="frame" x="0.0" y="87" width="233.5" height="33.5"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="0.0" y="86.5" width="233" height="34.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -56,8 +52,8 @@
                                     <constraint firstItem="wzW-Vm-U2E" firstAttribute="leading" secondItem="aeL-3O-aua" secondAttribute="leading" id="ge4-Fb-xkm"/>
                                 </constraints>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="114.png" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JjL-uC-7WJ">
-                                <rect key="frame" x="257.5" y="12" width="120.5" height="120.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-user-icon" translatesAutoresizingMaskIntoConstraints="NO" id="JjL-uC-7WJ">
+                                <rect key="frame" x="257" y="12" width="121" height="121"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="JjL-uC-7WJ" secondAttribute="height" multiplier="1:1" id="njJ-zV-eMn"/>
                                 </constraints>
@@ -84,7 +80,6 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="firstNameTF" destination="Yeo-yu-2e5" id="qFn-XG-GWq"/>
-                <outlet property="imageView" destination="JjL-uC-7WJ" id="PxI-b8-ZC1"/>
                 <outlet property="lastNameTF" destination="BY5-ie-J4r" id="Fdj-7y-dtC"/>
                 <outlet property="personView" destination="9uQ-NS-dsi" id="MkR-vu-3Pj"/>
                 <outlet property="userIV" destination="JjL-uC-7WJ" id="5O7-dn-e4b"/>
@@ -93,6 +88,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="114.png" width="114" height="114"/>
+        <image name="default-user-icon" width="207.5" height="207.5"/>
     </resources>
 </document>
